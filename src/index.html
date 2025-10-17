@@ -125,6 +125,7 @@
 
         .social-buttons {
             display: flex;
+            justify-content: center; /* Alteração feita aqui */
             gap: 1.5rem;
             margin-top: 1rem;
         }
@@ -248,6 +249,26 @@
             color: var(--primary);
             margin-bottom: 0.5rem;
         }
+        
+        .view-cert-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .view-cert-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
 
         /* Languages Section */
         .language-item {
@@ -317,7 +338,6 @@
             font-size: 3rem;
         }
         
-        /* Adicione esta regra */
         .project-image img {
             width: 100%;
             height: 100%;
@@ -479,6 +499,8 @@
             background: rgba(0, 0, 0, 0.8);
             z-index: 2000;
             overflow-y: auto;
+            justify-content: center;
+            align-items: center;
         }
 
         .modal-content {
@@ -504,6 +526,17 @@
             border-radius: 8px;
             margin-bottom: 1.5rem;
         }
+        
+        .modal-cert-image {
+            width: 100%;
+            max-width: 90vw;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -660,34 +693,41 @@
                         <h4>AWS Academy Graduate - Cloud Architecting</h4>
                         <p><strong>Instituição:</strong> AWS Academy</p>
                         <p><strong>Tipo:</strong> Training Badge</p>
+                        <button class="view-cert-btn" onclick="openModal('certModal1')">Visualizar</button>
                     </div>
                     <div class="certificate-item">
                         <h4>Desenvolvedor para Dispositivos Móveis</h4>
                         <p><strong>Instituição:</strong> CPS</p>
                         <p><strong>Tipo:</strong> Badge</p>
+                        <button class="view-cert-btn" onclick="openModal('certModal2')">Visualizar</button>
                     </div>
                     <div class="certificate-item">
                         <h4>AWS Academy Graduate - Generative AI Foundations</h4>
                         <p><strong>Instituição:</strong> AWS Academy</p>
+                         <button class="view-cert-btn" onclick="openModal('certModal3')">Visualizar</button>
                     </div>
                     <div class="certificate-item">
                         <h4>UX Básico</h4>
                         <p><strong>Instituição:</strong> CPS</p>
                         <p><strong>Tipo:</strong> Badge</p>
+                        <button class="view-cert-btn" onclick="openModal('certModal4')">Visualizar</button>
                     </div>
                     <div class="certificate-item">
                         <h4>Design Patterns Básico</h4>
                         <p><strong>Instituição:</strong> CPS</p>
                         <p><strong>Tipo:</strong> Badge</p>
+                        <button class="view-cert-btn" onclick="openModal('certModal5')">Visualizar</button>
                     </div>
                     <div class="certificate-item">
                         <h4>Front-End Básico</h4>
                         <p><strong>Instituição:</strong> CPS</p>
                         <p><strong>Tipo:</strong> Badge</p>
+                        <button class="view-cert-btn" onclick="openModal('certModal6')">Visualizar</button>
                     </div>
                     <div class="certificate-item">
                         <h4>Excel Aplicado a Área Administrativa</h4>
                         <p><strong>Instituição:</strong> Colégio e Curso Start</p>
+                        <button class="view-cert-btn" onclick="openModal('certModal7')">Visualizar</button>
                     </div>
                 </div>
             </div>
@@ -853,7 +893,6 @@
             </a>
         </div>
     </div>
-
     <div id="modal2" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('modal2')">&times;</span>
@@ -868,13 +907,12 @@
             </a>
         </div>
     </div>
-
     <div id="modal3" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('modal3')">&times;</span>
             <h2>Projeto Interdisciplinar</h2>
-            <img src="imgs/projeto3.jpg" alt="Projeto Interdisciplinar" class="modal-image">
-            <p><strong>Descrição:</strong> Projeto interdisciplinar desenvolvido em equipe para solucionar problemas reais utilizando tecnologias modernas, integrando diferentes áreas do conhecimento.</p>
+            <img src="imgs/projeto3.jpg" alt="New Age Salon" class="modal-image">
+            <p><strong>Descrição:</strong> Site para cabelereiro com foco em facilitação de agendas e organização de gerecinamento de clientes.</p>
             <p><strong>Tecnologias Utilizadas:</strong> HTML, CSS, JavaScript, Bootstrap, APIs REST</p>
             <p><strong>Minha Participação:</strong> Coordenação do desenvolvimento front-end, integração com APIs e implementação da interface responsiva.</p>
             <a href="https://github.com/danielznz/Projeto-Inter" target="_blank" class="project-link">
@@ -883,7 +921,6 @@
             </a>
         </div>
     </div>
-
     <div id="modal4" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('modal4')">&times;</span>
@@ -898,19 +935,61 @@
             </a>
         </div>
     </div>
-
     <div id="modal5" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('modal5')">&times;</span>
             <h2>Projeto Paz</h2>
             <img src="imgs/projeto5.png" alt="Projeto Paz" class="modal-image">
-            <p><strong>Descrição:</strong> Projeto integrador focado em desenvolvimento de soluções para promoção da paz e bem-estar social, utilizando tecnologia para conectar pessoas e promover ações positivas.</p>
+            <p><strong>Descrição:</strong> Projeto integrador focado em desenvolvimento de um aplicativo mobile para uma igreja com foco na facilitação de vendas e um organizar os dados.</p>
             <p><strong>Tecnologias Utilizadas:</strong> React Native, Firebase, Node.js, Express</p>
             <p><strong>Minha Participação:</strong> Desenvolvimento do aplicativo móvel com React Native, integração com Firebase e criação das funcionalidades de geolocalização.</p>
             <a href="https://github.com/SpringDevsFatec/PI_ProjetoPaz" target="_blank" class="project-link">
                 <i class="fab fa-github"></i>
                 Ver Código no GitHub
             </a>
+        </div>
+    </div>
+
+    <div id="certModal1" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('certModal1')">&times;</span>
+            <img src="imgs/cloudArchtitecting.jpg" alt="Certificado AWS Cloud Architecting" class="modal-cert-image">
+        </div>
+    </div>
+    <div id="certModal2" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('certModal2')">&times;</span>
+            <img src="imgs/1758047223305.jpg" alt="Certificado Desenvolvedor para Dispositivos Móveis" class="modal-cert-image">
+        </div>
+    </div>
+    <div id="certModal3" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('certModal3')">&times;</span>
+            <img src="imgs/1752774402528.jpg" alt="Certificado AWS Generative AI Foundations" class="modal-cert-image">
+        </div>
+    </div>
+    <div id="certModal4" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('certModal4')">&times;</span>
+            <img src="imgs/1748547542301.jpg" alt="Certificado UX Básico" class="modal-cert-image">
+        </div>
+    </div>
+    <div id="certModal5" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('certModal5')">&times;</span>
+            <img src="imgs/1748547748511.jpg" alt="Certificado Design Patterns Básico" class="modal-cert-image">
+        </div>
+    </div>
+    <div id="certModal6" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('certModal6')">&times;</span>
+            <img src="imgs/1715539050774.jpg" alt="Certificado Front-End Básico" class="modal-cert-image">
+        </div>
+    </div>
+    <div id="certModal7" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('certModal7')">&times;</span>
+            <img src="imgs/1715540021052.jpg" alt="Certificado Excel" class="modal-cert-image">
         </div>
     </div>
 
@@ -933,13 +1012,19 @@
 
         // Modal functions
         function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
-            document.body.style.overflow = 'hidden';
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
         }
 
         function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-            document.body.style.overflow = 'auto';
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         }
 
         // Close modal when clicking outside
